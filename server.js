@@ -46,5 +46,5 @@ app.post("/imageurl", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.send("it is working!");
+  res.json("Live: https://github.com/bartholomewbd/imgdetection");
 });

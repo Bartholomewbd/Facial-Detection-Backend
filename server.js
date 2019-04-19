@@ -18,17 +18,12 @@ const db = knex({
 });
 
 const app = express();
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log("Server is running on port: ", PORT);
+app.listen(process.env.PORT || 3000, () => {
+  console.log(`Server is running on port: ${process.env.PORT}`);
 });
 
 app.use(bodyParser.json());
 app.use(cors());
-
-app.get("/", (req, res) => {
-  res.send("it is working!");
-});
 
 app.post("/signin", (req, res) => {
   signin.handleSignIn(req, res, db, bcrypt);
@@ -48,4 +43,8 @@ app.put("/image", (req, res) => {
 
 app.post("/imageurl", (req, res) => {
   image.handleApiCall(req, res);
+});
+
+app.get("/", (req, res) => {
+  res.send("it is working!");
 });

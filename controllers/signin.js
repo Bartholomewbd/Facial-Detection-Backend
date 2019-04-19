@@ -12,7 +12,9 @@ const handleSignIn = (req, res, db, bcrypt) => {
         return db
           .select("*")
           .from("users")
-          .where("email", "=", email)
+          .where({
+            email: email
+          })
           .then(user => {
             res.json(user[0]);
           })

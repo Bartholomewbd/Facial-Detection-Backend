@@ -43,6 +43,7 @@ app.put("/image", (req, res) => {
 });
 
 app.post("/imageurl", (req, res) => {
+  console.log('hello')
   imageUrl.handleApiCall(req, res);
 });
 

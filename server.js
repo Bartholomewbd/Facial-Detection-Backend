@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const bcrypt = require("bcrypt-nodejs");
-const cors = require("cors");
+const cors2 = require("cors");
 const knex = require("knex");
 
 const register = require("./controllers/register");
@@ -24,7 +24,7 @@ app.listen(process.env.PORT || 3000, () => {
 });
 
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors2());
 
 app.post("/signin", (req, res) => {
   signin.handleSignIn(req, res, db, bcrypt);
@@ -43,7 +43,6 @@ app.put("/image", (req, res) => {
 });
 
 app.post("/imageurl", (req, res) => {
-  console.log('hello')
   imageUrl.handleApiCall(req, res);
 });
 

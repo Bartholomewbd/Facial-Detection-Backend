@@ -1,14 +1,14 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const bcrypt = require("bcrypt-nodejs");
-const cors2 = require("cors");
+const cors = require("cors");
 const knex = require("knex");
 
 const register = require("./controllers/register");
 const signin = require("./controllers/signin");
 const profile = require("./controllers/profile");
 const image = require("./controllers/image");
-const imageUrl = require("./controllers/imageUrl");
+const imageUrl = require("./controllers/imgUrl");
 
 const db = knex({
   client: "pg",
@@ -24,7 +24,7 @@ app.listen(process.env.PORT || 3000, () => {
 });
 
 app.use(bodyParser.json());
-app.use(cors2());
+app.use(cors());
 
 app.post("/signin", (req, res) => {
   signin.handleSignIn(req, res, db, bcrypt);
